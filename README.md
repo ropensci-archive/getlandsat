@@ -94,7 +94,13 @@ lsat_scene_files(x = res$download_url[1])
 
 ## Get an image
 
-_coming_
+Returns path to the image
+
+
+```r
+lsat_image(x = "LC80101172015002LGN00_B5.TIF")
+#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpQYWM25/file10cf71ed3f3ca.TIF"
+```
 
 ## Meta
 
