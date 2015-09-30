@@ -1,6 +1,10 @@
 language: r
 sudo: required
 
+r_github_packages:
+  - hadley/readr
+  - cloudyr/aws.s3
+
 notifications:
   email:
     on_success: change
