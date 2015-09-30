@@ -9,6 +9,10 @@ lsat_image(x, path = NULL, overwrite = FALSE, ...)
 \arguments{
 \item{x}{(character) A file name for a geotif file, will be more general soon.}
 
+\item{path}{(character) Path to content to.}
+
+\item{overwrite}{(logical) Will only overwrite existing path if \code{TRUE}}
+
 \item{...}{Curl args passed on to \code{\link[httr]{GET}}}
 }
 \description{
