@@ -1,0 +1,45 @@
+getlandsat
+======
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+[![Build Status](https://travis-ci.org/sckott/getlandsat.svg?branch=master)](https://travis-ci.org/sckott/getlandsat)
+
+__Get Landsat 8 data from AWS public data sets__
+
+## Install
+
+```{r eval=FALSE}
+devtools::install_github("sckott/getlandsat")
+```
+
+```{r}
+library("getlandsat")
+```
+
+## List scenes
+
+```{r}
+(res <- lsat_scenes(n_max = 10))
+```
+
+## List scene files
+
+```{r}
+lsat_scene_files(x = res$download_url[1])
+```
+
+## Get an image
+
+_coming_
+
+## Meta
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
