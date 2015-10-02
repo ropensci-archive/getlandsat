@@ -7,6 +7,15 @@ getlandsat
 
 __Get Landsat 8 data from AWS public data sets__
 
+## Install non-CRAN dependencies
+
+
+```r
+devtools::install_github('hadley/readr')
+devtools::install_github('cloudyr/aws.signature')
+devtools::install_github('cloudyr/aws.s3')
+```
+
 ## Install
 
 
@@ -99,7 +108,7 @@ Returns path to the image
 
 ```r
 lsat_image(x = "LC80101172015002LGN00_B5.TIF")
-#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpQYWM25/file10cf71ed3f3ca.TIF"
+#> [1] "C:\\Users\\user\\AppData\\Local\\Temp\\1\\RtmpsFKbIw\\file207c62f46b57.TIF"
 ```
 
 ## Meta
