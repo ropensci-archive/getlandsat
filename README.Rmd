@@ -52,6 +52,19 @@ Returns path to the image
 lsat_image(x = "LC80101172015002LGN00_B5.TIF")
 ```
 
+### Caching
+
+When requesting an image, we first check if you already have that image. If you do, 
+we return the path to the file. If not, we get the image, and return the file path.
+
+```{r message=TRUE}
+lsat_image(x = "LC80101172015002LGN00_B5.TIF")
+```
+
+Note the message given.
+
+See `?lsat_cache` for cache management functions.
+
 ## Meta
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

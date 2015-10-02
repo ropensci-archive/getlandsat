@@ -108,8 +108,24 @@ Returns path to the image
 
 ```r
 lsat_image(x = "LC80101172015002LGN00_B5.TIF")
-#> [1] "C:\\Users\\user\\AppData\\Local\\Temp\\1\\RtmpsFKbIw\\file207c62f46b57.TIF"
+#> [1] "~/.landsat-pds/L8/010/117/LC80101172015002LGN00/LC80101172015002LGN00_B5.TIF"
 ```
+
+### Caching
+
+When requesting an image, we first check if you already have that image. If you do, 
+we return the path to the file. If not, we get the image, and return the file path.
+
+
+```r
+lsat_image(x = "LC80101172015002LGN00_B5.TIF")
+#> File in cache
+#> [1] "~/.landsat-pds/L8/010/117/LC80101172015002LGN00/LC80101172015002LGN00_B5.TIF"
+```
+
+Note the message given.
+
+See `?lsat_cache` for cache management functions.
 
 ## Meta
 

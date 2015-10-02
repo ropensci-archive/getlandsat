@@ -4,16 +4,18 @@
 \alias{lsat_image}
 \title{GET Landsat image(s)}
 \usage{
-lsat_image(x, path = NULL, overwrite = FALSE, ...)
+lsat_image(x, overwrite = FALSE, ...)
 }
 \arguments{
 \item{x}{(character) A file name for a geotif file, will be more general soon.}
 
-\item{path}{(character) Path to content to.}
-
 \item{overwrite}{(logical) Will only overwrite existing path if \code{TRUE}}
 
 \item{...}{Curl args passed on to \code{\link[httr]{GET}}}
+}
+\value{
+Path to the file, whether found in cache or new file
+requested.
 }
 \description{
 GET Landsat image(s)
@@ -21,7 +23,15 @@ GET Landsat image(s)
 \examples{
 \dontrun{
 # pass an image name
-lsat_image(x = "LC80101172015002LGN00_B5.TIF")
+lsat_image("LC80101172015002LGN00_B5.TIF")
+lsat_image("LC81390452014295LGN00_B2.TIF")
+
+# caching
+## requesting an image you already have will return path if found
+lsat_image("LC80101172015002LGN00_B5.TIF")
 }
+}
+\seealso{
+\code{\link{lsat_cache}}
 }
 
