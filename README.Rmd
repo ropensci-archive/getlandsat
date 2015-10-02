@@ -14,6 +14,14 @@ knitr::opts_chunk$set(
 
 __Get Landsat 8 data from AWS public data sets__
 
+## Install non-CRAN dependencies
+
+```{r eval=FALSE}
+devtools::install_github('hadley/readr')
+devtools::install_github('cloudyr/aws.signature')
+devtools::install_github('cloudyr/aws.s3')
+```
+
 ## Install
 
 ```{r eval=FALSE}
