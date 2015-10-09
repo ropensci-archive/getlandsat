@@ -37,7 +37,7 @@ lsatGET <- function(url, dat, overwrite, ...) {
     handle_errors(res, fpath)
 
     dir.create(dirname(fpath), showWarnings = FALSE, recursive = TRUE)
-    file.rename(temp_path, fpath, overwrite)
+    file.rename(temp_path, fpath)
 
     # return file path
     return(fpath)
