@@ -30,12 +30,17 @@ lsatGET <- function(url, dat, overwrite, ...) {
     message("File in cache")
     return(fpath)
   } else {
-    dir.create(dirname(fpath), showWarnings = FALSE, recursive = TRUE)
-    res <- GET(url, write_disk(path = fpath, overwrite = overwrite), ...)
-    # delete file if error, and stop message
+    temp_path = tempfile()
+    res <- GET(url, write_disk(path = temp_path, overwrite = overwrite), ...)
+
+    #if download has failed, it will stop here
     handle_errors(res, fpath)
+
+    dir.create(dirname(fpath), showWarnings = FALSE, recursive = TRUE)
+    file.rename(temp_path, fpath, overwrite)
+
     # return file path
-    return(res$request$output$path)
+    return(fpath)
   }
 }
 
