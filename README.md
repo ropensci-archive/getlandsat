@@ -3,16 +3,15 @@ getlandsat
 
 
 
-[![Build Status](https://travis-ci.org/sckott/getlandsat.svg?branch=master)](https://travis-ci.org/sckott/getlandsat)
+[![Build Status](https://travis-ci.org/ropenscilabs/getlandsat.svg?branch=master)](https://travis-ci.org/ropenscilabs/getlandsat)
 
-__Get Landsat 8 data from AWS public data sets__
+`getlandsat`: Get Landsat 8 data from AWS public data sets
 
-## Install non-CRAN dependencies
+## get CRAN and non-CRAN dependencies
 
 
 ```r
-devtools::install_github('hadley/readr')
-devtools::install_github('cloudyr/aws.signature')
+install.packages(c("readr", "aws.signature"))
 devtools::install_github('cloudyr/aws.s3')
 ```
 
@@ -20,7 +19,7 @@ devtools::install_github('cloudyr/aws.s3')
 
 
 ```r
-devtools::install_github("sckott/getlandsat")
+devtools::install_github("ropenscilabs/getlandsat")
 ```
 
 
