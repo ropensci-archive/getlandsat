@@ -64,6 +64,14 @@ Note the message given.
 
 See `?lsat_cache` for cache management functions.
 
+## Visualize
+
+```{r}
+library("raster")
+x <- lsat_cache_details()[[1]]
+img <- raster(x$file)
+```
+
 ## Meta
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

@@ -1,12 +1,12 @@
 language: r
 sudo: required
-
 r_github_packages:
-  - hadley/readr
-  - cloudyr/aws.signature
-  - cloudyr/aws.s3
-
+- hadley/readr
+- cloudyr/aws.signature
+- cloudyr/aws.s3
 notifications:
   email:
     on_success: change
     on_failure: change
+  slack:
+    secure: p6M37egrYYguRIVcnTcpYUPOawyMk3gT7N3x8bcp5GgZB88ryGbD6XSHOCAtY+NhHDe8hLewKjnUSDr34C7YV6lr21s4wwEc3gwz8hoVtjOXqF9GhAGCjB2TGGpXDBHO4IDJknSlgxLRXQ1xyKliSpUBGiQZmzi0uwbmGi5aLjcx1sQwV1xGnXv09YG+c7xDccJ+9/FlTliQPq7tkHBDxO6vNap+cqOss4Y+6wPl1zMdc97aj/ACNvAQyJAq3RHxOlEwFYY4tAYBdtyneI/9WCX341qBX5InvB194r4OJGFZAljgK/ebig6ejj1m5zmaV+AyqOhrJ/G/0NXO4kFe1zXg+/wMgb+hfmeiIPKcip/P5BPG8H75Ncvl67rra63PHWOv4qvACjGn+zCUpBQt3RszUq24gUp3mq015xraGcVWs/1szsgey9HZm5mT4TuG6Z8xypj+7PoVIiNxY4ZIM/+NEjtUr4RB+nTg4BWG0HMHZsTbCvcxl/kO9dv02e3POsLGRGBHIIwEH8OnOEpwQrMeK2vxDaF3t4DAjIVpFpj6IRwzf37NWc/JOdRjNDa6pP87t7eku/QeXXztjS77borsmDQMXO9jb/WseriAEq7fbewJrn0vk5VmWFZpZMYteg8gQesIHj2phyl5OJ7Ft9/LT1WVLFu8sGQUsj6cyXc=
