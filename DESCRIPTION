@@ -3,7 +3,7 @@ Type: Package
 Title: Get Landsat 8 Data
 Description: Get Landsat 8 Data from AWS public data sets. Includes
     functions for listing images and fetching them.
-Version: 0.0.2.9000
+Version: 0.0.2.9100
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE

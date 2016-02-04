@@ -11,7 +11,7 @@
 lsat_scene_files <- function(x, ...) {
   path <- strextract(x, "L8.+")
   tmp <- aws.s3::getobject("landsat-pds", path, ...)
-  txt <- httr::content(tmp, "text")
+  txt <- httr::content(tmp, "text", encoding = "UTF-8")
   html <- xml2::read_html(txt)
   df <- do.call("rbind.data.frame", lapply(xml2::xml_find_all(html, '//li'), function(x) {
     al <- xml2::as_list(x)
