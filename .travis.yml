@@ -1,9 +1,12 @@
 language: r
-sudo: required
+sudo: false
+cache: packages
+
 r_github_packages:
 - hadley/readr
 - cloudyr/aws.signature
 - cloudyr/aws.s3
+
 notifications:
   email:
     on_success: change
