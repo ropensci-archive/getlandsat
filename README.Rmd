@@ -14,13 +14,6 @@ knitr::opts_chunk$set(
 
 `getlandsat`: Get Landsat 8 data from AWS public data sets
 
-## get CRAN and non-CRAN dependencies
-
-```{r eval=FALSE}
-install.packages(c("readr", "aws.signature"))
-devtools::install_github('cloudyr/aws.s3')
-```
-
 ## Install
 
 ```{r eval=FALSE}
