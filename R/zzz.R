@@ -4,7 +4,7 @@ colClasses <- function(d, colClasses) {
       numeric = as.numeric(d[[i]]), character = as.character(d[[i]]),
       Date = as.Date(d[[i]], origin = "1970-01-01"), POSIXct = as.POSIXct(d[[i]],
         origin = "1970-01-01"), factor = as.factor(d[[i]]),
-      as(d[[i]], colClasses[i])))
+      methods::as(d[[i]], colClasses[i])))
   d
 }
 

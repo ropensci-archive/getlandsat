@@ -5,9 +5,16 @@
 #' the up to date compressed csv file.
 #'
 #' @export
-#' @param ... Further args passed on to \code{\link[aws.s3]{getbucket}}
-#' @param max Integer indicating the maximum number of keys to return (max 1000,
+#' @param max (integer) number indicating the maximum number of keys to return (max 1000,
 #' default 1000).
+#' @param marker (character) string that pecifies the key to start with when listing
+#' objects in a AWS bucket. Amazon S3 returns object keys in alphabetical order,
+#' starting with key after the marker in order
+#' @param prefix (character) string that limits the response to keys that begin
+#' with the specified prefix
+#' @param delimiter (character) string used to group keys. Read the AWS doc for
+#' more detail.
+#' @param ... curl args passed on to \code{\link[httr]{GET}}
 #' @examples \dontrun{
 #' lsat_list(max = 10)
 #'
@@ -19,8 +26,8 @@
 #' library("httr")
 #' lsat_list(max = 3, config = verbose())
 #' }
-lsat_list <- function(max = NULL, marker = NULL, ...) {
-  args <- tc(list(`max-keys` = max, marker = marker))
+lsat_list <- function(max = NULL, marker = NULL, prefix = NULL, delimiter = NULL, ...) {
+  args <- tc(list(`max-keys` = max, marker = marker, prefix = prefix, delimiter = delimiter))
   tmp <- parsxml(lsat_GET(lsat_base(), query = args, ...))
   tmp <- flat_list(tmp[names(tmp) == "Contents"])
   df <- data.table::setDF(data.table::rbindlist(tmp, fill = TRUE, use.names = TRUE))

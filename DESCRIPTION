@@ -11,6 +11,7 @@ License: MIT + file LICENSE
 URL: https://github.com/ropenscilabs/getlandsat
 BugReports: https://github.com/ropenscilabs/getlandsat/issues
 Imports:
+    methods,
     readr (>= 0.2.2),
     httr (>= 1.0.0),
     xml2,
