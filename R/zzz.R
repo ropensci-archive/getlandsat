@@ -33,3 +33,24 @@ parse_landsat_str <- function(x) {
   c(res, str = z, file = file, ext = ext)
 }
 
+lsat_GET <- function(x, ...) {
+  res <- httr::GET(x, ...)
+  httr::stop_for_status(res)
+}
+
+getc <- function(x) {
+  content(x, "text", encoding = 'UTF-8')
+}
+
+parsxml <- function(x) {
+  txt <- getc(x)
+  flat_list(xml2::as_list(xml2::read_xml(txt)))
+}
+
+flat_list <- function(z) {
+  Map(function(x) as.list(unlist(x)), z)
+}
+
+tc <- function(x) Filter(Negate(is.null), x)
+
+lsat_base <- function() "http://landsat-pds.s3-us-west-2.amazonaws.com"

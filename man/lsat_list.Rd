@@ -4,7 +4,7 @@
 \alias{lsat_list}
 \title{List Landsat images}
 \usage{
-lsat_list(max = NULL, ...)
+lsat_list(max = NULL, marker = NULL, ...)
 }
 \arguments{
 \item{max}{Integer indicating the maximum number of keys to return (max 1000,
@@ -27,7 +27,7 @@ lsat_list(marker = res$Key[10], max = 10)
 
 # curl options
 library("httr")
-lsat_list(config = verbose())
+lsat_list(max = 3, config = verbose())
 }
 }
 

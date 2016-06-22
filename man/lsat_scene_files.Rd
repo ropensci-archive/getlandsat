@@ -11,6 +11,13 @@ lsat_scene_files(x, ...)
 
 \item{...}{Further args passed on to \code{\link[aws.s3]{getobject}}}
 }
+\value{
+A data.frame with two columns:
+\itemize{
+ \item file - file name
+ \item size - file size
+}
+}
 \description{
 List files for a Landsat scene
 }

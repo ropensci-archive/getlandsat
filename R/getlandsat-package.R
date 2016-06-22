@@ -1,6 +1,5 @@
 #' getlandsat - get Landsat 8 data from AWS public data sets
 #'
-#' @importFrom aws.s3 getbucket getobject
 #' @importFrom readr read_csv
 #' @importFrom xml2 read_html xml_find_all as_list
 #' @importFrom httr content write_disk GET stop_for_status

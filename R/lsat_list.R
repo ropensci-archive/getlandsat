@@ -17,16 +17,12 @@
 #'
 #' # curl options
 #' library("httr")
-#' lsat_list(config = verbose())
+#' lsat_list(max = 3, config = verbose())
 #' }
-lsat_list <- function(max = NULL, ...) {
-  tmp <- aws.s3::getbucket(bucket = "landsat-pds", max = max, ...)
-  tmp <- tmp[names(tmp) == "Contents"]
-  df <- do.call("rbind.data.frame", tmp)
-  row.names(df) <- NULL
-  df <- colClasses(df, "character")
-  keys <- df$Key
-  lapply(keys, function(z) {
-    "x"
-  })
+lsat_list <- function(max = NULL, marker = NULL, ...) {
+  args <- tc(list(`max-keys` = max, marker = marker))
+  tmp <- parsxml(lsat_GET(lsat_base(), query = args, ...))
+  tmp <- flat_list(tmp[names(tmp) == "Contents"])
+  df <- data.table::setDF(data.table::rbindlist(tmp, fill = TRUE, use.names = TRUE))
+  tibble::as_data_frame(df)
 }
