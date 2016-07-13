@@ -29,13 +29,13 @@
 
 #' @export
 #' @rdname lsat_cache
-lsat_cache_list <- function(cache_path = "~/.landsat-pds") {
-  list.files(cache_path, pattern = ".TIF", ignore.case = TRUE, recursive = TRUE)
+lsat_cache_list <- function() {
+  list.files(lsat_path(), pattern = ".TIF", ignore.case = TRUE, recursive = TRUE)
 }
 
 #' @export
 #' @rdname lsat_cache
-lsat_cache_delete <- function(files, cache_path = "~/.landsat-pds", force = FALSE) {
+lsat_cache_delete <- function(files, force = FALSE) {
   dat <- parse_landsat_str(files)
   files <- file.path(lsat_path(), "L8", dat$wrs_path, dat$wrs_row, dat$str, files)
   if (!all(file.exists(files))) {
@@ -47,21 +47,21 @@ lsat_cache_delete <- function(files, cache_path = "~/.landsat-pds", force = FALS
 
 #' @export
 #' @rdname lsat_cache
-lsat_cache_delete_all <- function(cache_path = "~/.landsat-pds", force = FALSE) {
-  files <- list.files(cache_path, pattern = ".TIF", ignore.case = TRUE,
+lsat_cache_delete_all <- function(force = FALSE) {
+  files <- list.files(lsat_path(), pattern = ".TIF", ignore.case = TRUE,
                       full.names = TRUE, recursive = TRUE)
   unlink(files, force = force)
 }
 
 #' @export
 #' @rdname lsat_cache
-lsat_cache_details <- function(files = NULL, cache_path = "~/.landsat-pds") {
+lsat_cache_details <- function(files = NULL) {
   if (is.null(files)) {
-    files <- list.files(cache_path, pattern = ".TIF", ignore.case = TRUE,
+    files <- list.files(lsat_path(), pattern = ".TIF", ignore.case = TRUE,
                         full.names = TRUE, recursive = TRUE)
     structure(lapply(files, file_info_), class = "landsat_cache_info")
   } else {
-    files <- file.path(cache_path, files)
+    files <- file.path(lsat_path(), files)
     structure(lapply(files, file_info_), class = "landsat_cache_info")
   }
 }
@@ -95,4 +95,4 @@ print.landsat_cache_info <- function(x, ...) {
   }
 }
 
-lsat_path <- function() "~/.landsat-pds"
+lsat_path <- function() rappdirs::user_cache_dir("landsat-pds")

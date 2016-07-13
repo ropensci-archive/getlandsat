@@ -12,12 +12,13 @@ lsatGET <- function(url, dat, overwrite, ...) {
     message("File in cache")
     return(fpath)
   } else {
-    temp_path = tempfile()
+    temp_path <- tempfile()
     res <- httr::GET(url, httr::write_disk(path = temp_path, overwrite = overwrite), ...)
 
     #if download has failed, it will stop here
     handle_errors(res, fpath)
 
+    # create directory if it doesn't exist yet
     dir.create(dirname(fpath), showWarnings = FALSE, recursive = TRUE)
     file.rename(temp_path, fpath)
 

@@ -8,20 +8,20 @@
 \alias{lsat_cache_list}
 \title{Manage cached files}
 \usage{
-lsat_cache_list(cache_path = "~/.landsat-pds")
+lsat_cache_list()
 
-lsat_cache_delete(files, cache_path = "~/.landsat-pds", force = FALSE)
+lsat_cache_delete(files, force = FALSE)
 
-lsat_cache_delete_all(cache_path = "~/.landsat-pds", force = FALSE)
+lsat_cache_delete_all(force = FALSE)
 
-lsat_cache_details(files = NULL, cache_path = "~/.landsat-pds")
+lsat_cache_details(files = NULL)
 }
 \arguments{
-\item{cache_path}{path to cached files. Default: \code{"~/.landsat-pds"}}
-
 \item{files}{File name or names}
 
 \item{force}{(logical) Should files be force deleted? Default: \code{FALSE}}
+
+\item{cache_path}{path to cached files. Default: \code{"~/.landsat-pds"}}
 }
 \description{
 Manage cached files

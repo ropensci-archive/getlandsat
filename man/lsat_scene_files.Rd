@@ -9,7 +9,7 @@ lsat_scene_files(x, ...)
 \arguments{
 \item{x}{(character) A URL to a scene html file}
 
-\item{...}{Further args passed on to \code{\link[aws.s3]{getobject}}}
+\item{...}{Further args passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame with two columns:

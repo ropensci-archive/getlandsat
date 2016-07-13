@@ -16,7 +16,8 @@ Imports:
     httr (>= 1.0.0),
     xml2,
     data.table,
-    tibble
+    tibble,
+    rappdirs
 Suggests:
     testthat,
     covr
