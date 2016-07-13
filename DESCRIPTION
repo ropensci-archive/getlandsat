@@ -20,5 +20,7 @@ Imports:
     rappdirs
 Suggests:
     testthat,
+    knitr,
     covr
+VignetteBuilder: knitr
 RoxygenNote: 5.0.1

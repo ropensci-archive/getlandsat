@@ -1,0 +1,86 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{getlandsat introduction}
+%\VignetteEncoding{UTF-8}
+-->
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "img/"
+)
+```
+
+getlandsat introduction
+=======================
+
+Get Landsat 8 Data from AWS public data sets. Includes functions for 
+listing images and fetching them.
+
+## Install
+
+Dev version
+
+```{r eval=FALSE}
+devtools::install_github(c("ropenscilabs/getlandsat"))
+```
+
+```{r}
+library("getlandsat")
+```
+
+```{r echo=FALSE}
+lsat_cache_delete_all()
+```
+
+
+## List scenes
+
+```{r}
+(res <- lsat_scenes(n_max = 10))
+```
+
+## List scene files
+
+```{r}
+lsat_scene_files(x = res$download_url[1])
+```
+
+## Get an image
+
+Returns path to the image
+
+```{r}
+lsat_image(x = "LC80101172015002LGN00_B5.TIF")
+```
+
+Another one
+
+```{r}
+lsat_image("LC80010032014272LGN00_B10.TIF")
+```
+
+### Caching
+
+When requesting an image, we first check if you already have that image. If you do, 
+we return the path to the file. If not, we get the image, and return the file path.
+
+```{r message=TRUE}
+lsat_image(x = "LC80101172015002LGN00_B5.TIF")
+```
+
+Note the message given.
+
+See `?lsat_cache` for cache management functions.
+
+## Visualize
+
+```{r}
+library("raster")
+x <- lsat_cache_details()
+img <- raster(x[[1]]$file)
+plot(img)
+```
