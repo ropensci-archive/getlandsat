@@ -6,7 +6,8 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "inst/img/"
 )
 ```
 
@@ -65,6 +66,7 @@ See `?lsat_cache` for cache management functions.
 library("raster")
 x <- lsat_cache_details()[[1]]
 img <- raster(x$file)
+plot(img)
 ```
 
 ## Meta

@@ -26,8 +26,7 @@ library("getlandsat")
 
 ```r
 (res <- lsat_scenes(n_max = 10))
-#> Source: local data frame [10 x 11]
-#> 
+#> # A tibble: 10 x 11
 #>                 entityId     acquisitionDate cloudCover processingLevel
 #>                    <chr>              <time>      <dbl>           <chr>
 #> 1  LC80101172015002LGN00 2015-01-02 15:49:05      80.81            L1GT
@@ -40,8 +39,8 @@ library("getlandsat")
 #> 8  LC82111112015002LGN00 2015-01-02 12:28:55      43.43            L1GT
 #> 9  LC81950292015002LGN00 2015-01-02 10:17:20      21.02             L1T
 #> 10 LC81790452015002LGN00 2015-01-02 08:44:49       1.92             L1T
-#> Variables not shown: path <int>, row <int>, min_lat <dbl>, min_lon <dbl>,
-#>   max_lat <dbl>, max_lon <dbl>, download_url <chr>.
+#> # ... with 7 more variables: path <int>, row <int>, min_lat <dbl>,
+#> #   min_lon <dbl>, max_lat <dbl>, max_lon <dbl>, download_url <chr>
 ```
 
 ## List scene files
@@ -110,7 +109,10 @@ See `?lsat_cache` for cache management functions.
 library("raster")
 x <- lsat_cache_details()[[1]]
 img <- raster(x$file)
+plot(img)
 ```
+
+![plot of chunk unnamed-chunk-14](inst/img/unnamed-chunk-14-1.png)
 
 ## Meta
 
