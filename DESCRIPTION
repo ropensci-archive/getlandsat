@@ -1,8 +1,10 @@
 Package: getlandsat
 Type: Package
-Title: Get Landsat 8 Data
-Description: Get Landsat 8 Data from AWS public data sets. Includes
-    functions for listing images and fetching them.
+Title: Get Landsat 8 Data from Amazon Pulic Data Sets
+Description: Get Landsat 8 Data from AWS public data sets
+    (<https://aws.amazon.com/public-data-sets/landsat/>). Includes
+    functions for listing images and fetching them, and handles
+    caching to prevent unnecessary additional requests.
 Version: 0.0.6.9000
 Date: 2016-07-13
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
