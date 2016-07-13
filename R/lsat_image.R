@@ -37,16 +37,17 @@ lsatGET <- function(url, dat, overwrite, ...) {
 #' @seealso \code{\link{lsat_cache}}
 #' @examples \dontrun{
 #' # pass an image name
-#' lsat_image("LC80101172015002LGN00_B5.TIF")
-#' lsat_image("LC81390452014295LGN00_B2.TIF")
+#' (res <- lsat_list(max = 10))
+#' lsat_image(res$Key[6])
+#' lsat_image(res$Key[2])
 #'
 #' # caching
 #' ## requesting an image you already have will return path if found
-#' lsat_image("LC80101172015002LGN00_B5.TIF")
+#' lsat_image(res$Key[6])
 #' }
 lsat_image <- function(x, overwrite = FALSE, ...) {
   dat <- parse_landsat_str(x)
   url <- sprintf("https://s3-us-west-2.amazonaws.com/landsat-pds/L8/%s/%s/%s/%s",
-                 dat$wrs_path, dat$wrs_row, dat$str, x)
+                 dat$wrs_path, dat$wrs_row, dat$str, basename(x))
   lsatGET(url, dat, overwrite, ...)
 }

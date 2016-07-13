@@ -36,12 +36,15 @@ use \code{cache_delete} in a \code{\link{lapply}} type call
 # list files in cache
 lsat_cache_list()
 
-# List info for files
-lsat_cache_details(files = "LC80101172015002LGN00_B5.TIF")
+# List info for single files
+lsat_cache_details(files = lsat_cache_list()[1])
+lsat_cache_details(files = lsat_cache_list()[2])
+
+# List info for all files
 lsat_cache_details()
 
 # delete files by name in cache
-# lsat_cache_delete(files = 'LC80101172015002LGN00_B5.TIF')
+# lsat_cache_delete(files = lsat_cache_list()[1])
 
 # delete all files in cache
 # lsat_cache_delete_all()

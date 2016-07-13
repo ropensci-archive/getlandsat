@@ -12,6 +12,7 @@ strextract <- function(str, pattern) regmatches(str, regexpr(pattern, str))
 
 # General purpose parser fxn to parse apart file names, etc. into their components
 parse_landsat_str <- function(x) {
+  x <- basename(x)
   ext <- NULL
   # strip off file ext, if any
   if (grepl("\\.[A-Za-z]+", x)) {
