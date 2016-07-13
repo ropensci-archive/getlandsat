@@ -2,12 +2,14 @@
 #'
 #' @export
 #' @param x (character) A URL to a scene html file
-#' @param ... Further args passed on to \code{\link[aws.s3]{getobject}}
+#' @param ... Further args passed on to \code{\link[httr]{GET}}
+#'
 #' @return A data.frame with two columns:
 #' \itemize{
 #'  \item file - file name
 #'  \item size - file size
 #' }
+#'
 #' @examples \dontrun{
 #' res <- lsat_scenes(n_max = 10)
 #' lsat_scene_files(x = res$download_url[1])
@@ -15,6 +17,9 @@
 #' }
 lsat_scene_files <- function(x, ...) {
   path <- strextract(x, "L8.+")
+  if (length(path) == 0) {
+    stop("input needs to be a URL for a scene html file", call. = FALSE)
+  }
   url <- file.path(lsat_base(), path)
   res <- lsat_GET(url, ...)
   txt <- getc(res)

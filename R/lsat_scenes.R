@@ -17,5 +17,9 @@
 #' }
 lsat_scenes <- function(...) {
   url <- "http://landsat-pds.s3.amazonaws.com/scene_list.gz"
+  args <- list(...)
+  if (any(names(args) %in% 'skip')) {
+    warning("you probably don't want to use 'skip' as that skips the table header", call. = FALSE)
+  }
   readr::read_csv(url, ...)
 }
