@@ -28,8 +28,7 @@
 #' }
 lsat_list <- function(max = NULL, marker = NULL, prefix = NULL, delimiter = NULL, ...) {
   args <- tc(list(`max-keys` = max, marker = marker, prefix = prefix, delimiter = delimiter))
-  tmp <- parsxml(lsat_GET(lsat_base(), query = args, ...))
-  tmp <- flat_list(tmp[names(tmp) == "Contents"])
+  tmp <- parsxml2(lsat_GET(lsat_base(), query = args, ...))
   df <- data.table::setDF(data.table::rbindlist(tmp, fill = TRUE, use.names = TRUE))
   tibble::as_data_frame(df)
 }

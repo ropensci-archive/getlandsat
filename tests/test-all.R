@@ -1,2 +1,2 @@
 library("testthat")
-test_check("getlandsast")
+test_check("getlandsat")

@@ -44,7 +44,10 @@ getc <- function(x) {
 
 parsxml <- function(x) {
   txt <- getc(x)
-  flat_list(xml2::as_list(xml2::read_xml(txt)))
+  xml <- read_xml(txt)
+  ch <- xml_children(xml)
+  cont <- ch[xml_name(ch) == "Contents"]
+  flat_list(lapply(cont, as_list))
 }
 
 flat_list <- function(z) {
