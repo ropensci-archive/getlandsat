@@ -1,5 +1,5 @@
 getlandsat
-======
+==========
 
 
 
@@ -9,11 +9,20 @@ getlandsat
 
 `getlandsat`: Get Landsat 8 data from AWS public data sets
 
-`getlandsat` provides access to Landsat <https://landsat.usgs.gov> 8 metadata and images hosted on AWS S3 at <https://aws.amazon.com/public-data-sets/landsat>. The package only fetches data. It does not attempt to aid users in downstream usage, but additional functionality may be added if requested.
+`getlandsat` provides access to Landsat <https://landsat.usgs.gov> 8 metadata and images hosted on AWS S3 at <https://aws.amazon.com/public-data-sets/landsat>. The package only fetches data. It does not attempt to aid users in downstream usage, but some additional functionality may be added.
 
-Users are a diverse group, anyone from scientists asking questions about biodiversity or land use change, to software developers creating tools for users to vizualize their data. 
+Potential users are probably anyone from scientists asking questions about biodiversity or land use change, to software developers creating tools for users to vizualize their data.
 
 ## Install
+
+Stable version
+
+
+```r
+install.packages("getlandsat")
+```
+
+Dev version
 
 
 ```r
@@ -87,19 +96,19 @@ Returns path to the image
 
 ```r
 lsat_image(x = "LC80101172015002LGN00_B5.TIF")
-#> [1] "~/.landsat-pds/L8/010/117/LC80101172015002LGN00/LC80101172015002LGN00_B5.TIF"
+#> [1] "/Users/sacmac/Library/Caches/landsat-pds/L8/010/117/LC80101172015002LGN00/LC80101172015002LGN00_B5.TIF"
 ```
 
 ### Caching
 
-When requesting an image, we first check if you already have that image. If you do, 
+When requesting an image, we first check if you already have that image. If you do,
 we return the path to the file. If not, we get the image, and return the file path.
 
 
 ```r
 lsat_image(x = "LC80101172015002LGN00_B5.TIF")
 #> File in cache
-#> [1] "~/.landsat-pds/L8/010/117/LC80101172015002LGN00/LC80101172015002LGN00_B5.TIF"
+#> [1] "/Users/sacmac/Library/Caches/landsat-pds/L8/010/117/LC80101172015002LGN00/LC80101172015002LGN00_B5.TIF"
 ```
 
 Note the message given.
@@ -116,7 +125,7 @@ img <- raster(x$file)
 plot(img)
 ```
 
-![plot of chunk unnamed-chunk-14](inst/img/unnamed-chunk-14-1.png)
+![plot of chunk unnamed-chunk-9](inst/img/unnamed-chunk-9-1.png)
 
 ## Meta
 
