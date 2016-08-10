@@ -23,13 +23,15 @@ GET Landsat image(s)
 \examples{
 \dontrun{
 # pass an image name
-(res <- lsat_list(max = 10))
-lsat_image(res$Key[6])
-lsat_image(res$Key[2])
+(res <- lsat_list(max = 40))
+tifs <- grep("\\\\.TIF$", res$Key, value = TRUE)
+lsat_image(tifs[5])
+lsat_image(tifs[6])
+lsat_image(tifs[9])
 
 # caching
 ## requesting an image you already have will return path if found
-lsat_image(res$Key[6])
+lsat_image(tifs[5])
 }
 }
 \seealso{

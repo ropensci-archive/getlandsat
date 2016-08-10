@@ -10,16 +10,16 @@
 \usage{
 lsat_cache_list()
 
-lsat_cache_delete(files, force = FALSE)
+lsat_cache_delete(files, force = TRUE)
 
-lsat_cache_delete_all(force = FALSE)
+lsat_cache_delete_all(force = TRUE)
 
 lsat_cache_details(files = NULL)
 }
 \arguments{
-\item{files}{File name or names}
+\item{files}{(character) one or more complete file names}
 
-\item{force}{(logical) Should files be force deleted? Default: \code{FALSE}}
+\item{force}{(logical) Should files be force deleted? Default: \code{TRUE}}
 }
 \description{
 Manage cached files
@@ -31,6 +31,14 @@ use \code{cache_delete} in a \code{\link{lapply}} type call
 
 We cache using \code{\link[rappdirs]{user_cache_dir}}, find your cache
 folder by executing \code{rappdirs::user_cache_dir("landsat-pds")}
+
+\itemize{
+ \item \code{lsat_cache_list()} returns a character vector of full path file names
+ \item \code{lsat_cache_delete()} deletes one or more files, returns nothing
+ \item \code{lsat_cache_delete_all()} delete all files, returns nothing
+ \item \code{lsat_cache_details()} prints file name and file size for each file,
+ supply with one or more files, or no files (and get details for all available)
+}
 }
 \examples{
 \dontrun{
