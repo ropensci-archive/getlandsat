@@ -1,7 +1,7 @@
 context("caching")
 
 x <- "L8/001/003/LC80010032014272LGN00/LC80010032014272LGN00_B4.TIF"
-
+imgfile <- system.file("examples/image.TIF", package = "getlandsat")
 base <- rappdirs::user_cache_dir("landsat-pds")
 
 test_that("lsat_cache_delete_all works", {
@@ -17,9 +17,7 @@ test_that("lsat_cache_list works", {
   expect_equal(length(a), 0)
 
   # add a file
-  tiff(file.path(base, "L8/stuff.TIF"))
-  plot(1:10)
-  dev.off()
+  file.copy(imgfile, file.path(base, "L8/stuff.TIF"))
 
   a <- lsat_cache_list()
   expect_is(a, "character")
@@ -32,9 +30,8 @@ test_that("lsat_cache_list works", {
 test_that("lsat_cache_details works", {
   skip_on_cran()
 
-  tiff(file.path(base, "L8/things.TIF"))
-  plot(1:10)
-  dev.off()
+  # add a file
+  file.copy(imgfile, file.path(base, "L8/things.TIF"))
 
   # file input
   a <- lsat_cache_details(lsat_cache_list()[1])
@@ -64,13 +61,8 @@ test_that("lsat_cache_delete works", {
 })
 
 test_that("lsat_cache_delete_all works", {
-  tiff(file.path(base, "L8/a.TIF"))
-  plot(1:10)
-  dev.off()
-
-  tiff(file.path(base, "L8/b.TIF"))
-  plot(1:10)
-  dev.off()
+  file.copy(imgfile, file.path(base, "L8/a.TIF"))
+  file.copy(imgfile, file.path(base, "L8/b.TIF"))
 
   gg <- lsat_cache_list()
 

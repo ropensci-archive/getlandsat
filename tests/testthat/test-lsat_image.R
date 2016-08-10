@@ -30,3 +30,6 @@ test_that("lsat_image, works with partial paths to images", {
 test_that("lsat_image, fails well", {
   expect_error(lsat_image("asdfadf"), "Not Found")
 })
+
+# cleanup
+lsat_cache_delete_all()
