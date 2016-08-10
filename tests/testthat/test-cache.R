@@ -5,11 +5,15 @@ imgfile <- system.file("examples/image.TIF", package = "getlandsat")
 base <- rappdirs::user_cache_dir("landsat-pds")
 
 test_that("lsat_cache_delete_all works", {
+  skip_on_cran()
+  skip_on_travis()
+
   expect_silent(lsat_cache_delete_all())
 })
 
 test_that("lsat_cache_list works", {
   skip_on_cran()
+  skip_on_travis()
 
   # no files
   a <- lsat_cache_list()
@@ -29,6 +33,7 @@ test_that("lsat_cache_list works", {
 
 test_that("lsat_cache_details works", {
   skip_on_cran()
+  skip_on_travis()
 
   # add a file
   file.copy(imgfile, file.path(base, "L8/things.TIF"))
@@ -53,6 +58,9 @@ test_that("lsat_cache_details works", {
 })
 
 test_that("lsat_cache_delete works", {
+  skip_on_cran()
+  skip_on_travis()
+
   ff <- lsat_cache_list()[1]
 
   expect_true(file.exists(ff))
@@ -61,6 +69,9 @@ test_that("lsat_cache_delete works", {
 })
 
 test_that("lsat_cache_delete_all works", {
+  skip_on_cran()
+  skip_on_travis()
+
   file.copy(imgfile, file.path(base, "L8/a.TIF"))
   file.copy(imgfile, file.path(base, "L8/b.TIF"))
 
