@@ -12,6 +12,7 @@
 #' @details We cache using \code{\link[rappdirs]{user_cache_dir}}, find your cache
 #' folder by executing \code{rappdirs::user_cache_dir("landsat-pds")}
 #'
+#' @section Functions:
 #' \itemize{
 #'  \item \code{lsat_cache_list()} returns a character vector of full path file names
 #'  \item \code{lsat_cache_delete()} deletes one or more files, returns nothing

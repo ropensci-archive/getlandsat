@@ -9,7 +9,7 @@ lsat_scene_files(x, ...)
 \arguments{
 \item{x}{(character) A URL to a scene html file}
 
-\item{...}{Further args passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame with two columns:
@@ -21,11 +21,18 @@ A data.frame with two columns:
 \description{
 List files for a Landsat scene
 }
+\details{
+This function fetches files available in a scene, while
+\code{\link{lsat_scenes}} lists the scenes, but not their files
+}
 \examples{
 \dontrun{
 res <- lsat_scenes(n_max = 10)
 lsat_scene_files(x = res$download_url[1])
 lsat_scene_files(x = res$download_url[2])
 }
+}
+\seealso{
+\code{\link{lsat_scenes}}
 }
 

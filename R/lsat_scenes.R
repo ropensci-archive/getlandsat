@@ -8,6 +8,12 @@
 #' file for \code{read_csv} for what parameter you can pass to modify it's
 #' behavior.
 #'
+#' This is an alternative to using \code{\link{lsat_list}}. This function
+#' downloads the up to date compressed csv file, while \code{\link{lsat_list}}
+#' uses the AWS S3 API.
+#'
+#' @seealso \code{\link{lsat_scene_files}}
+#'
 #' @examples \dontrun{
 #' res <- lsat_scenes()
 #' head(res)

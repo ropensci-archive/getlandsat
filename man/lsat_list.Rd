@@ -24,8 +24,11 @@ more detail.}
 \item{...}{curl args passed on to \code{\link[httr]{GET}}}
 }
 \description{
-This is an alternative to using lsat_scenes(). This
-function uses the AWS S3 API, while the other fxn simply downloads
+List Landsat images
+}
+\details{
+This is an alternative to using \code{\link{lsat_scenes}}. This
+function uses the AWS S3 API, while \code{\link{lsat_scenes}} downloads
 the up to date compressed csv file.
 }
 \examples{

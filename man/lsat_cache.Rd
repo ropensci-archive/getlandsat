@@ -31,6 +31,8 @@ use \code{cache_delete} in a \code{\link{lapply}} type call
 
 We cache using \code{\link[rappdirs]{user_cache_dir}}, find your cache
 folder by executing \code{rappdirs::user_cache_dir("landsat-pds")}
+}
+\section{Functions}{
 
 \itemize{
  \item \code{lsat_cache_list()} returns a character vector of full path file names

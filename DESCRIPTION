@@ -5,8 +5,8 @@ Description: Get Landsat 8 Data from AWS public data sets
     (<https://aws.amazon.com/public-data-sets/landsat/>). Includes
     functions for listing images and fetching them, and handles
     caching to prevent unnecessary additional requests.
-Version: 0.0.6.9000
-Date: 2016-07-13
+Version: 0.0.9.9000
+Date: 2016-08-10
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
@@ -21,8 +21,10 @@ Imports:
     tibble,
     rappdirs
 Suggests:
+    roxygen2 (>= 5.0.1),
     testthat,
     knitr,
-    covr
+    covr,
+    raster
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1

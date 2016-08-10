@@ -2,7 +2,12 @@
 #'
 #' @export
 #' @param x (character) A URL to a scene html file
-#' @param ... Further args passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#'
+#' @details This function fetches files available in a scene, while
+#' \code{\link{lsat_scenes}} lists the scenes, but not their files
+#'
+#' @seealso \code{\link{lsat_scenes}}
 #'
 #' @return A data.frame with two columns:
 #' \itemize{

@@ -1,8 +1,4 @@
-#' @title List Landsat images
-#'
-#' @description This is an alternative to using lsat_scenes(). This
-#' function uses the AWS S3 API, while the other fxn simply downloads
-#' the up to date compressed csv file.
+#' List Landsat images
 #'
 #' @export
 #' @param max (integer) number indicating the maximum number of keys to return (max 1000,
@@ -15,6 +11,11 @@
 #' @param delimiter (character) string used to group keys. Read the AWS doc for
 #' more detail.
 #' @param ... curl args passed on to \code{\link[httr]{GET}}
+#'
+#' @details This is an alternative to using \code{\link{lsat_scenes}}. This
+#' function uses the AWS S3 API, while \code{\link{lsat_scenes}} downloads
+#' the up to date compressed csv file.
+#'
 #' @examples \dontrun{
 #' lsat_list(max = 10)
 #'
