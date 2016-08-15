@@ -29,10 +29,12 @@ lsat_scene_files <- function(x, ...) {
   res <- lsat_GET(url, ...)
   txt <- getc(res)
   html <- xml2::read_html(txt)
-  df <- do.call("rbind.data.frame", lapply(xml2::xml_find_all(html, '//li'), function(x) {
-    al <- xml2::as_list(x)
-    size <- strextract(strextract(al[[2]], "\\(.+"), "[0-9\\.]+[A-Z]+")
-    list(file = al$a[[1]], size = size)
-  }))
+  df <- do.call(
+    "rbind.data.frame",
+    lapply(xml2::xml_find_all(html, '//li'), function(x) {
+      al <- xml2::as_list(x)
+      size <- strextract(strextract(al[[2]], "\\(.+"), "[0-9\\.]+[A-Z]+")
+      list(file = al$a[[1]], size = size)
+    }))
   colClasses(df, "character")
 }

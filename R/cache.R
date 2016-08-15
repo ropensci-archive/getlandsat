@@ -42,7 +42,8 @@
 #' @export
 #' @rdname lsat_cache
 lsat_cache_list <- function() {
-  list.files(lsat_path(), pattern = ".TIF", ignore.case = TRUE, recursive = TRUE, full.names = TRUE)
+  list.files(lsat_path(), pattern = ".TIF", ignore.case = TRUE,
+             recursive = TRUE, full.names = TRUE)
 }
 
 #' @export

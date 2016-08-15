@@ -8,18 +8,18 @@ lsat_list(max = NULL, marker = NULL, prefix = NULL, delimiter = NULL,
   ...)
 }
 \arguments{
-\item{max}{(integer) number indicating the maximum number of keys to return (max 1000,
-default 1000).}
+\item{max}{(integer) number indicating the maximum number of keys to
+return (max 1000, default 1000).}
 
-\item{marker}{(character) string that pecifies the key to start with when listing
-objects in a AWS bucket. Amazon S3 returns object keys in alphabetical order,
-starting with key after the marker in order}
+\item{marker}{(character) string that pecifies the key to start with
+when listing objects in a AWS bucket. Amazon S3 returns object keys in
+alphabetical order, starting with key after the marker in order}
 
-\item{prefix}{(character) string that limits the response to keys that begin
-with the specified prefix}
+\item{prefix}{(character) string that limits the response to keys
+that begin with the specified prefix}
 
-\item{delimiter}{(character) string used to group keys. Read the AWS doc for
-more detail.}
+\item{delimiter}{(character) string used to group keys. Read the AWS
+doc for more detail.}
 
 \item{...}{curl args passed on to \code{\link[httr]{GET}}}
 }

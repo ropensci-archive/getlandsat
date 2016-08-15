@@ -13,7 +13,8 @@ lsatGET <- function(url, dat, overwrite, ...) {
     return(fpath)
   } else {
     temp_path <- tempfile()
-    res <- httr::GET(url, httr::write_disk(path = temp_path, overwrite = overwrite), ...)
+    res <- httr::GET(url, httr::write_disk(path = temp_path,
+                                           overwrite = overwrite), ...)
 
     #if download has failed, it will stop here
     handle_errors(res, fpath)
@@ -50,7 +51,9 @@ lsatGET <- function(url, dat, overwrite, ...) {
 #' }
 lsat_image <- function(x, overwrite = FALSE, ...) {
   dat <- parse_landsat_str(x)
-  url <- sprintf("https://s3-us-west-2.amazonaws.com/landsat-pds/L8/%s/%s/%s/%s",
-                 dat$wrs_path, dat$wrs_row, dat$str, basename(x))
+  url <- sprintf(
+    "https://s3-us-west-2.amazonaws.com/landsat-pds/L8/%s/%s/%s/%s",
+    dat$wrs_path, dat$wrs_row, dat$str, basename(x)
+  )
   lsatGET(url, dat, overwrite, ...)
 }

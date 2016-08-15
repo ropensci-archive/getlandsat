@@ -1,7 +1,8 @@
 context("lsat_scene_files")
 
-url1 <- "https://s3-us-west-2.amazonaws.com/landsat-pds/L8/010/117/LC80101172015002LGN00/index.html"
-url2 <- "https://s3-us-west-2.amazonaws.com/landsat-pds/L8/026/039/LC80260392015002LGN00/index.html"
+ub <- "https://s3-us-west-2.amazonaws.com/landsat-pds/L8"
+url1 <- paste0(ub, "/010/117/LC80101172015002LGN00/index.html")
+url2 <- paste0(ub, "/026/039/LC80260392015002LGN00/index.html")
 
 test_that("lsat_scene_files, n_max parameter usage", {
   skip_on_cran()
@@ -26,9 +27,8 @@ test_that("lsat_scene_files, fails well", {
 })
 
 test_that("lsat_scene_files, curl options work", {
-  library("httr")
-  expect_output(lsat_scene_files(url1, config = progress()), "100%")
+  expect_output(lsat_scene_files(url1, config = httr::progress()), "100%")
 
-  expect_error(lsat_scene_files(url1, config = timeout(seconds = 0.01)),
+  expect_error(lsat_scene_files(url1, config = httr::timeout(seconds = 0.01)),
                "Timeout was reached")
 })
