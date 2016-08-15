@@ -6,3 +6,4 @@ README.Rmd
 ^NEWS\.md$
 ^Makefile$
 ^CONTRIBUTING\.md$
+^cran-comments\.md$

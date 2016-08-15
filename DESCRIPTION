@@ -5,7 +5,7 @@ Description: Get Landsat 8 Data from AWS public data sets
     (<https://aws.amazon.com/public-data-sets/landsat/>). Includes
     functions for listing images and fetching them, and handles
     caching to prevent unnecessary additional requests.
-Version: 0.0.9.9111
+Version: 0.1.0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
