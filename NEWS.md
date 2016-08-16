@@ -1,6 +1,6 @@
 getlandsat 0.1.0
 ================
 
-NEW FEATURES
+### NEW FEATURES
 
 * Released to CRAN.
