@@ -3,7 +3,6 @@
 ^CONDUCT\.md$
 README.Rmd
 .travis.yml
-^NEWS\.md$
 ^Makefile$
 ^CONTRIBUTING\.md$
 ^cran-comments\.md$
