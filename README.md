@@ -6,6 +6,7 @@ getlandsat
 [![Build Status](https://travis-ci.org/ropenscilabs/getlandsat.svg?branch=master)](https://travis-ci.org/ropenscilabs/getlandsat)
 [![codecov](https://codecov.io/gh/ropenscilabs/getlandsat/branch/master/graph/badge.svg)](https://codecov.io/gh/ropenscilabs/getlandsat)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/getlandsat)](https://github.com/metacran/cranlogs.app)
+[![cran version](http://www.r-pkg.org/badges/version/getlandsat)](https://cran.r-project.org/package=getlandsat)
 
 `getlandsat`: Get Landsat 8 data from AWS public data sets
 
