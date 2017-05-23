@@ -9,13 +9,13 @@ lsat_scene_files(x, ...)
 \arguments{
 \item{x}{(character) A URL to a scene html file}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \value{
 A data.frame with two columns:
 \itemize{
- \item file - file name
- \item size - file size
+\item file - file name
+\item size - file size
 }
 }
 \description{
@@ -23,7 +23,7 @@ List files for a Landsat scene
 }
 \details{
 This function fetches files available in a scene, while
-\code{\link{lsat_scenes}} lists the scenes, but not their files
+\code{\link[=lsat_scenes]{lsat_scenes()}} lists the scenes, but not their files
 }
 \examples{
 \dontrun{
@@ -33,5 +33,5 @@ lsat_scene_files(x = res$download_url[2])
 }
 }
 \seealso{
-\code{\link{lsat_scenes}}
+\code{\link[=lsat_scenes]{lsat_scenes()}}
 }

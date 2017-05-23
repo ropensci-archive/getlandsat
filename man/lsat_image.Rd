@@ -2,23 +2,25 @@
 % Please edit documentation in R/lsat_image.R
 \name{lsat_image}
 \alias{lsat_image}
-\title{GET Landsat image(s)}
+\title{Get Landsat image(s)}
 \usage{
 lsat_image(x, overwrite = FALSE, ...)
 }
 \arguments{
 \item{x}{(character) A file name for a geotif file, will be more general soon.}
 
-\item{overwrite}{(logical) Will only overwrite existing path if \code{TRUE}}
+\item{overwrite}{(logical) Will only overwrite existing path if \code{TRUE}.
+Deprecated, will be removed in the next version. If file exists we return
+that path so there's no chance of overwriting}
 
-\item{...}{Curl args passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl args passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \value{
 Path to the file, whether found in cache or new file
 requested.
 }
 \description{
-GET Landsat image(s)
+Get Landsat image(s)
 }
 \examples{
 \dontrun{
@@ -35,5 +37,5 @@ lsat_image(tifs[5])
 }
 }
 \seealso{
-\code{\link{lsat_cache}}
+\code{\link[=lsat_cache]{lsat_cache()}}
 }

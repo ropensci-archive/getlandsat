@@ -2,12 +2,12 @@
 #'
 #' @export
 #' @param x (character) A URL to a scene html file
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #'
 #' @details This function fetches files available in a scene, while
-#' \code{\link{lsat_scenes}} lists the scenes, but not their files
+#' [lsat_scenes()] lists the scenes, but not their files
 #'
-#' @seealso \code{\link{lsat_scenes}}
+#' @seealso [lsat_scenes()]
 #'
 #' @return A data.frame with two columns:
 #' \itemize{
@@ -27,7 +27,7 @@ lsat_scene_files <- function(x, ...) {
   }
   url <- file.path(lsat_base(), path)
   res <- lsat_GET(url, ...)
-  txt <- getc(res)
+  txt <- res$parse("UTF-8")
   html <- xml2::read_html(txt)
   df <- do.call(
     "rbind.data.frame",

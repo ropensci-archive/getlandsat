@@ -27,8 +27,6 @@ test_that("lsat_scene_files, fails well", {
 })
 
 test_that("lsat_scene_files, curl options work", {
-  expect_output(lsat_scene_files(url1, config = httr::progress()), "100%")
-
-  expect_error(lsat_scene_files(url1, config = httr::timeout(seconds = 0.01)),
+  expect_error(lsat_scene_files(url1, timeout_ms = 10),
                "Timeout was reached")
 })

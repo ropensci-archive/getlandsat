@@ -1,6 +1,6 @@
 handle_errors <- function(x, path) {
   if (x$status_code > 201) {
-    httr::stop_for_status(x)
+    x$raise_for_status()
     unlink(path, recursive = TRUE, force = TRUE)
   }
 }
@@ -13,8 +13,8 @@ lsatGET <- function(url, dat, overwrite, ...) {
     return(fpath)
   } else {
     temp_path <- tempfile()
-    res <- httr::GET(url, httr::write_disk(path = temp_path,
-                                           overwrite = overwrite), ...)
+    cli <- crul::HttpClient$new(url = url, opts = list(...))
+    res <- cli$get(disk = temp_path)
 
     #if download has failed, it will stop here
     handle_errors(res, fpath)
@@ -28,15 +28,17 @@ lsatGET <- function(url, dat, overwrite, ...) {
   }
 }
 
-#' GET Landsat image(s)
+#' Get Landsat image(s)
 #'
 #' @export
 #' @param x (character) A file name for a geotif file, will be more general soon.
-#' @param overwrite	(logical) Will only overwrite existing path if \code{TRUE}
-#' @param ... Curl args passed on to \code{\link[httr]{GET}}
+#' @param overwrite	(logical) Will only overwrite existing path if `TRUE`.
+#' Deprecated, will be removed in the next version. If file exists we return
+#' that path so there's no chance of overwriting
+#' @param ... Curl args passed on to [crul::HttpClient()]
 #' @return Path to the file, whether found in cache or new file
 #' requested.
-#' @seealso \code{\link{lsat_cache}}
+#' @seealso [lsat_cache()]
 #' @examples \dontrun{
 #' # pass an image name
 #' (res <- lsat_list(max = 40))

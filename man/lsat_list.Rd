@@ -21,14 +21,14 @@ that begin with the specified prefix}
 \item{delimiter}{(character) string used to group keys. Read the AWS
 doc for more detail.}
 
-\item{...}{curl args passed on to \code{\link[httr]{GET}}}
+\item{...}{curl args passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 List Landsat images
 }
 \details{
-This is an alternative to using \code{\link{lsat_scenes}}. This
-function uses the AWS S3 API, while \code{\link{lsat_scenes}} downloads
+This is an alternative to using \code{\link[=lsat_scenes]{lsat_scenes()}}. This
+function uses the AWS S3 API, while \code{\link[=lsat_scenes]{lsat_scenes()}} downloads
 the up to date compressed csv file.
 }
 \examples{
@@ -40,7 +40,6 @@ res <- lsat_list(max = 10)
 lsat_list(marker = res$Key[10], max = 10)
 
 # curl options
-library("httr")
-lsat_list(max = 3, config = verbose())
+lsat_list(max = 3, verbose = TRUE)
 }
 }

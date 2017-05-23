@@ -5,16 +5,16 @@ Description: Get Landsat 8 Data from Amazon Web Services ('AWS')
     public data sets (<https://aws.amazon.com/public-data-sets/landsat/>).
     Includes functions for listing images and fetching them, and handles
     caching to prevent unnecessary additional requests.
-Version: 0.1.0.9000
+Version: 0.1.3.9410
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
 URL: https://github.com/ropenscilabs/getlandsat
 BugReports: https://github.com/ropenscilabs/getlandsat/issues
+Roxygen: list(markdown = TRUE)
 Imports:
     methods,
     readr (>= 1.0.0),
-    httr (>= 1.2.0),
     crul (>= 0.3.6),
     xml2 (>= 1.0.0),
     data.table,

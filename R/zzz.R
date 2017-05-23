@@ -36,18 +36,18 @@ parse_landsat_str <- function(x) {
   c(res, str = z, file = file, ext = ext)
 }
 
-lsat_GET <- function(x, ...) {
-  res <- httr::GET(x, ...)
-  httr::stop_for_status(res)
-}
-
-getc <- function(x) {
-  content(x, "text", encoding = 'UTF-8')
+lsat_GET <- function(x, args = list(), ...) {
+  cli <- crul::HttpClient$new(
+    url = x,
+    opts = list(...)
+  )
+  res <- cli$get(query = args)
+  res$raise_for_status()
+  return(res)
 }
 
 parsxml <- function(x) {
-  txt <- getc(x)
-  xml <- read_xml(txt)
+  xml <- read_xml(x)
   ch <- xml_children(xml)
   cont <- ch[xml_name(ch) == "Contents"]
   flat_list(lapply(cont, as_list))

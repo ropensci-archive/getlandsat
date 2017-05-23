@@ -7,30 +7,30 @@
 lsat_scenes(...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{\link[readr]{read_csv}}}
+\item{...}{Further args passed on to \code{\link[readr:read_csv]{readr::read_csv()}}}
 }
 \description{
 List Landsat scenes
 }
 \details{
-We use \code{\link[readr]{read_csv}} to read the scene list file
+We use \code{\link[readr:read_csv]{readr::read_csv()}} to read the scene list file
 from \url{http://landsat-pds.s3.amazonaws.com/scene_list.gz}. See the help
-file for \code{read_csv} for what parameter you can pass to modify it's
+file for \code{\link[readr:read_csv]{readr::read_csv()}} for what parameter you can pass to modify it's
 behavior.
 
-This is an alternative to using \code{\link{lsat_list}}. This function
-downloads the up to date compressed csv file, while \code{\link{lsat_list}}
+This is an alternative to using \code{\link[=lsat_list]{lsat_list()}}. This function
+downloads the up to date compressed csv file, while \code{\link[=lsat_list]{lsat_list()}}
 uses the AWS S3 API.
 }
 \examples{
 \dontrun{
 res <- lsat_scenes()
-head(res)
+res
 
 # read only N rows
 lsat_scenes(n_max = 10)
 }
 }
 \seealso{
-\code{\link{lsat_scene_files}}
+\code{\link[=lsat_scene_files]{lsat_scene_files()}}
 }
