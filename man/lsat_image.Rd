@@ -37,4 +37,3 @@ lsat_image(tifs[5])
 \seealso{
 \code{\link{lsat_cache}}
 }
-

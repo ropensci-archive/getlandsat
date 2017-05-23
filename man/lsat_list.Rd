@@ -44,4 +44,3 @@ library("httr")
 lsat_list(max = 3, config = verbose())
 }
 }
-

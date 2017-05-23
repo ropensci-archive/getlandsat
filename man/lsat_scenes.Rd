@@ -34,4 +34,3 @@ lsat_scenes(n_max = 10)
 \seealso{
 \code{\link{lsat_scene_files}}
 }
-

@@ -35,4 +35,3 @@ lsat_scene_files(x = res$download_url[2])
 \seealso{
 \code{\link{lsat_scenes}}
 }
-

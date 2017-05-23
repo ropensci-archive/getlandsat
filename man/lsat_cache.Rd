@@ -2,10 +2,10 @@
 % Please edit documentation in R/cache.R
 \name{lsat_cache}
 \alias{lsat_cache}
+\alias{lsat_cache_list}
 \alias{lsat_cache_delete}
 \alias{lsat_cache_delete_all}
 \alias{lsat_cache_details}
-\alias{lsat_cache_list}
 \title{Manage cached files}
 \usage{
 lsat_cache_list()
@@ -42,6 +42,7 @@ folder by executing \code{rappdirs::user_cache_dir("landsat-pds")}
  supply with one or more files, or no files (and get details for all available)
 }
 }
+
 \examples{
 \dontrun{
 # list files in cache
@@ -61,4 +62,3 @@ lsat_cache_details()
 # lsat_cache_delete_all()
 }
 }
-
