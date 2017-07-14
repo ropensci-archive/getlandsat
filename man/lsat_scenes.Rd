@@ -4,9 +4,12 @@
 \alias{lsat_scenes}
 \title{List Landsat scenes}
 \usage{
-lsat_scenes(...)
+lsat_scenes(extent = NULL, ...)
 }
 \arguments{
+\item{extent}{extent vector, of the form min lon, max lon, min lat, max lat.
+optional. requires \code{rgeos} and \code{sp} packages}
+
 \item{...}{Further args passed on to \code{\link[readr:read_csv]{readr::read_csv()}}}
 }
 \description{
@@ -17,6 +20,9 @@ We use \code{\link[readr:read_csv]{readr::read_csv()}} to read the scene list fi
 from \url{http://landsat-pds.s3.amazonaws.com/scene_list.gz}. See the help
 file for \code{\link[readr:read_csv]{readr::read_csv()}} for what parameter you can pass to modify it's
 behavior.
+
+After reading the data from the web, we cache the file to disk, but remove
+at the end of the R session.
 
 This is an alternative to using \code{\link[=lsat_list]{lsat_list()}}. This function
 downloads the up to date compressed csv file, while \code{\link[=lsat_list]{lsat_list()}}
@@ -29,6 +35,9 @@ res
 
 # read only N rows
 lsat_scenes(n_max = 10)
+
+# query by extent
+lsat_scenes(extent = c(-97, -95, 25, 30))
 }
 }
 \seealso{

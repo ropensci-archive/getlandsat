@@ -11,6 +11,10 @@ metadata and images hosted on AWS S3 at
 \url{https://aws.amazon.com/public-data-sets/landsat}. The package only
 fetches data. It does not attempt to aid users in downstream usage.
 }
+\details{
+See also the Landsat 8 Data Users Handbook
+\url{https://landsat.usgs.gov/sites/default/files/documents/Landsat8DataUsersHandbook.pdf}
+}
 \examples{
 \dontrun{
 ## List scenes

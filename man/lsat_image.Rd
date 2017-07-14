@@ -4,14 +4,19 @@
 \alias{lsat_image}
 \title{Get Landsat image(s)}
 \usage{
-lsat_image(x, overwrite = FALSE, ...)
+lsat_image(x, overwrite = FALSE, include_matching_prefix = TRUE, ...)
 }
 \arguments{
-\item{x}{(character) A file name for a geotif file, will be more general soon.}
+\item{x}{(character) A file name for a geotif file, will be more general
+soon. Must have a .tif/.TIF extension}
 
 \item{overwrite}{(logical) Will only overwrite existing path if \code{TRUE}.
 Deprecated, will be removed in the next version. If file exists we return
 that path so there's no chance of overwriting}
+
+\item{include_matching_prefix}{(logical) include metadata files,
+including \code{ovr}, \code{imd}, \code{json}, \code{txt} - If \code{TRUE}, we fetch all metadata
+files with the matching prefix}
 
 \item{...}{Curl args passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
