@@ -31,10 +31,14 @@ lsatGET <- function(url, dat, overwrite, ...) {
 #' Get Landsat image(s)
 #'
 #' @export
-#' @param x (character) A file name for a geotif file, will be more general soon.
+#' @param x (character) A file name for a geotif file, will be more general
+#' soon. Must have a .tif/.TIF extension
 #' @param overwrite	(logical) Will only overwrite existing path if `TRUE`.
 #' Deprecated, will be removed in the next version. If file exists we return
 #' that path so there's no chance of overwriting
+#' @param include_matching_prefix (logical) include metadata files,
+#' including `ovr`, `imd`, `json`, `txt` - If `TRUE`, we fetch all metadata
+#' files with the matching prefix
 #' @param ... Curl args passed on to [crul::HttpClient()]
 #' @return Path to the file, whether found in cache or new file
 #' requested.
@@ -51,11 +55,20 @@ lsatGET <- function(url, dat, overwrite, ...) {
 #' ## requesting an image you already have will return path if found
 #' lsat_image(tifs[5])
 #' }
-lsat_image <- function(x, overwrite = FALSE, ...) {
-  dat <- parse_landsat_str(x)
-  url <- sprintf(
-    "https://s3-us-west-2.amazonaws.com/landsat-pds/L8/%s/%s/%s/%s",
-    dat$wrs_path, dat$wrs_row, dat$str, basename(x)
-  )
-  lsatGET(url, dat, overwrite, ...)
+lsat_image <- function(x, overwrite = FALSE, include_matching_prefix = TRUE,
+                       ...) {
+
+  if (include_matching_prefix) {
+    fls <- lsat_list(prefix = sub("\\..+", "", x))
+    x <- fls$Key
+  }
+
+  unlist(lapply(x, function(z) {
+    dat <- parse_landsat_str(z)
+    url <- sprintf(
+      "https://s3-us-west-2.amazonaws.com/landsat-pds/L8/%s/%s/%s/%s",
+      dat$wrs_path, dat$wrs_row, dat$str, basename(z)
+    )
+    lsatGET(url, dat, overwrite, ...)
+  }), FALSE)
 }

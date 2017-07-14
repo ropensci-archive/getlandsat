@@ -5,6 +5,9 @@
 #' <https://aws.amazon.com/public-data-sets/landsat>. The package only
 #' fetches data. It does not attempt to aid users in downstream usage.
 #'
+#' See also the Landsat 8 Data Users Handbook
+#' <https://landsat.usgs.gov/sites/default/files/documents/Landsat8DataUsersHandbook.pdf>
+#'
 #' @importFrom readr read_csv
 #' @importFrom xml2 read_html read_xml xml_find_all as_list xml_children
 #' xml_name
