@@ -60,6 +60,7 @@ lsat_image <- function(x, overwrite = FALSE, include_matching_prefix = TRUE,
 
   if (include_matching_prefix) {
     fls <- lsat_list(prefix = sub("\\..+", "", x))
+    if (NROW(fls) == 0) stop("no matching results found")
     x <- fls$Key
   }
 

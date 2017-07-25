@@ -33,6 +33,7 @@ lsat_scenes_file <- file.path(lsat_scenes_path, "lsat_scenes.csv")
 #' lsat_scenes(extent = c(-97, -95, 25, 30))
 #' }
 lsat_scenes <- function(extent = NULL, ...) {
+  if (!is.null(extent)) stop("still working on this feature")
   url <- "http://landsat-pds.s3.amazonaws.com/scene_list.gz"
   args <- list(...)
   if (any(names(args) %in% 'skip')) {
@@ -44,11 +45,11 @@ lsat_scenes <- function(extent = NULL, ...) {
   if (
     length(list.files(lsat_scenes_path)) == 0 && !file.exists(lsat_scenes_file)
   ) {
-    dat <- readr::read_csv(url)
+    dat <- readr::read_csv(url, ...)
     dir.create(lsat_scenes_path, recursive = TRUE, showWarnings = FALSE)
     readr::write_csv(dat, path = lsat_scenes_file)
   } else {
-    dat <- readr::read_csv(lsat_scenes_file)
+    dat <- readr::read_csv(lsat_scenes_file, ...)
   }
   if (!is.null(extent)) {
     # LSAT data
@@ -68,6 +69,9 @@ lsat_scenes <- function(extent = NULL, ...) {
 
     # get data
     dat <- dat[bools, ]
+
+    ## using sp::over
+    #xxx
   }
   return(dat)
 }
