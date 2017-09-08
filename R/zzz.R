@@ -60,3 +60,11 @@ flat_list <- function(z) {
 tc <- function(x) Filter(Negate(is.null), x)
 
 lsat_base <- function() "http://landsat-pds.s3-us-west-2.amazonaws.com"
+
+check4pkg <- function(x) {
+  if (!requireNamespace(x, quietly = TRUE)) {
+    stop(sprintf("Please install '%s'", x), call. = FALSE)
+  } else {
+    invisible(TRUE)
+  }
+}

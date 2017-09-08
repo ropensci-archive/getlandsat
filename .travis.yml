@@ -1,9 +1,28 @@
 language: r
-sudo: false
+dist: trusty
+sudo: required
 cache: packages
 
+r_github_packages:
+  - jimhester/covr
+
+apt_packages:
+  - libudunits2-dev
+  - libproj-dev
+  - libgeos-dev
+
 after_success:
- - Rscript -e 'covr::codecov()'
+  - Rscript -e 'covr::codecov()'
+
+compiler:
+  - clang
+
+env:
+   global:
+     - R_LIBS="https://cran.rstudio.com"
+     - R_BUILD_ARGS="--no-build-vignettes --no-manual"
+     - R_CHECK_ARGS="--no-build-vignettes --no-manual --as-cran"
+     - BOOTSTRAP_LATEX=""
 
 notifications:
   email:

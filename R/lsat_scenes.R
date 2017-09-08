@@ -52,6 +52,9 @@ lsat_scenes <- function(extent = NULL, ...) {
     dat <- readr::read_csv(lsat_scenes_file, ...)
   }
   if (!is.null(extent)) {
+    check4pkg('sp')
+    check4pkg('rgeos')
+    check4pkg('raster')
     # LSAT data
     zz <- split(dat, rownames(dat))
     scenes <- lapply(zz, function(x) {
