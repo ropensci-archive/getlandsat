@@ -11,8 +11,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Build Status](https://travis-ci.org/ropenscilabs/getlandsat.svg?branch=master)](https://travis-ci.org/ropenscilabs/getlandsat)
-[![codecov](https://codecov.io/gh/ropenscilabs/getlandsat/branch/master/graph/badge.svg)](https://codecov.io/gh/ropenscilabs/getlandsat)
+[![Build Status](https://travis-ci.org/ropensci/getlandsat.svg?branch=master)](https://travis-ci.org/ropensci/getlandsat)
+[![codecov](https://codecov.io/gh/ropensci/getlandsat/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/getlandsat)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/getlandsat)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/getlandsat)](https://cran.r-project.org/package=getlandsat)
 [![](https://badges.ropensci.org/58_status.svg)](https://github.com/ropensci/onboarding/issues/58)
@@ -34,7 +34,7 @@ install.packages("getlandsat")
 Dev version
 
 ```{r eval=FALSE}
-devtools::install_github("ropenscilabs/getlandsat")
+devtools::install_github("ropensci/getlandsat")
 ```
 
 ```{r}
@@ -85,7 +85,7 @@ plot(img)
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropenscilabs/getlandsat/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/getlandsat/issues).
 * License: MIT
 * Get citation information for `getlandsat` in R doing `citation(package = 'getlandsat')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

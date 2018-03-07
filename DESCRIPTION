@@ -9,8 +9,8 @@ Version: 0.1.3.9410
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
-URL: https://github.com/ropenscilabs/getlandsat
-BugReports: https://github.com/ropenscilabs/getlandsat/issues
+URL: https://github.com/ropensci/getlandsat
+BugReports: https://github.com/ropensci/getlandsat/issues
 Roxygen: list(markdown = TRUE)
 Imports:
     methods,

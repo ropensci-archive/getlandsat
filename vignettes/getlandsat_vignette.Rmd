@@ -18,7 +18,7 @@ Dev version
 
 
 ```r
-devtools::install_github(c("ropenscilabs/getlandsat"))
+devtools::install_github(c("ropensci/getlandsat"))
 ```
 
 

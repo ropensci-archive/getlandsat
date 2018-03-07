@@ -1,20 +1,23 @@
 {
-  "@context": ["http://purl.org/codemeta/2.0", "http://schema.org"],
+  "@context": [
+    "http://purl.org/codemeta/2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "getlandsat",
   "description": "Get Landsat 8 Data from Amazon Web Services ('AWS')\n    public data sets (<https://aws.amazon.com/public-data-sets/landsat/>).\n    Includes functions for listing images and fetching them, and handles\n    caching to prevent unnecessary additional requests.",
   "name": "getlandsat: Get Landsat 8 Data from Amazon Public Data Sets",
-  "codeRepository": "https://github.com/ropenscilabs/getlandsat",
-  "issueTracker": "https://github.com/ropenscilabs/getlandsat/issues",
+  "codeRepository": "https://github.com/ropensci/getlandsat",
+  "issueTracker": "https://github.com/ropensci/getlandsat/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.1.3.9410",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.4.3",
+    "version": "3.4.4",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.4.3 Patched (2018-01-01 r74017)",
+  "runtimePlatform": "R version 3.4.4 beta (2018-03-05 r74359)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -169,8 +172,8 @@
       }
     }
   ],
-  "contIntegration": "https://travis-ci.org/ropenscilabs/getlandsat",
-  "releaseNotes": "https://github.com/ropenscilabs/getlandsat/blob/master/NEWS.md",
-  "readme": "https://github.com/ropenscilabs/getlandsat/blob/master/README.md",
-  "fileSize": "594.257KB"
+  "contIntegration": "https://travis-ci.org/ropensci/getlandsat",
+  "releaseNotes": "https://github.com/ropensci/getlandsat/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/getlandsat/blob/master/README.md",
+  "fileSize": "594.251KB"
 }
