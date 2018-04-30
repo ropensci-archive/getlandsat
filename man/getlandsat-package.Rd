@@ -8,7 +8,7 @@
 \description{
 \pkg{getlandsat} provides access to Landsat \url{https://landsat.usgs.gov} 8
 metadata and images hosted on AWS S3 at
-\url{https://aws.amazon.com/public-data-sets/landsat}. The package only
+\url{https://registry.opendata.aws/landsat-8/}. The package only
 fetches data. It does not attempt to aid users in downstream usage.
 }
 \examples{
