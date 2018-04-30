@@ -7,3 +7,4 @@ README.Rmd
 ^CONTRIBUTING\.md$
 ^cran-comments\.md$
 ^codemeta\.json$
+^.github$
