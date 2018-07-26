@@ -60,3 +60,12 @@ flat_list <- function(z) {
 tc <- function(x) Filter(Negate(is.null), x)
 
 lsat_base <- function() "http://landsat-pds.s3-us-west-2.amazonaws.com"
+
+assert <- function(x, y) {
+  if (!is.null(x)) {
+    if (!inherits(x, y)) {
+      stop(deparse(substitute(x)), " must be of class ",
+          paste0(y, collapse = ", "), call. = FALSE)
+    }
+  }
+}
