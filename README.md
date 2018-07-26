@@ -13,6 +13,8 @@ getlandsat
 
 `getlandsat` provides access to Landsat <https://landsat.usgs.gov> 8 metadata and images hosted on AWS S3 at <https://registry.opendata.aws/landsat-8/>. The package only fetches data. It does not attempt to aid users in downstream usage, but some additional functionality may be added.
 
+A new function `lsat_search()` lets you search for Landsat images by using the API from Development Seed documented at <https://github.com/sat-utils/sat-api>
+
 Potential users are probably anyone from scientists asking questions about biodiversity or land use change, to software developers creating tools for users to vizualize their data.
 
 ## Install
@@ -36,24 +38,41 @@ devtools::install_github("ropensci/getlandsat")
 library("getlandsat")
 ```
 
+## Search for images
+
+```{r eval=FALSE}
+x <- lsat_search(collection = "landsat-8", cloud_cover = c(0, 20), limit = 3)$features
+names(x)
+#> [1] "type"       "properties" "bbox"       "geometry"   "assets"     "links"
+x$properties
+#>                                         id         c:id                 datetime eo:cloud_cover eo:sun_azimuth
+#> 1 LC08_L1TP_183023_20160625_20170323_01_T1 landsat-8-l1 2016-06-25T09:00:16.825Z              0      150.61964
+#> 2 LC08_L1TP_183037_20160625_20170323_01_T1 landsat-8-l1 2016-06-25T09:05:51.253Z             19      110.95730
+#> 3 LC08_L1TP_183041_20160625_20170323_01_T1 landsat-8-l1 2016-06-25T09:07:26.830Z              0       95.69133
+#>   eo:sun_elevation landsat:path landsat:row
+#> 1         57.71269          183          23
+#> 2         68.16356          183          37
+#> 3         68.55517          183          41
+```
+
 ## List scenes
 
 
 ```r
 (res <- lsat_scenes(n_max = 10))
 #> # A tibble: 10 x 11
-#>    entityId     acquisitionDate     cloudCover processingLevel  path   row
-#>    <chr>        <dttm>                   <dbl> <chr>           <int> <int>
-#>  1 LC801011720… 2015-01-02 15:49:05      80.8  L1GT               10   117
-#>  2 LC802603920… 2015-01-02 16:56:51      90.8  L1GT               26    39
-#>  3 LC822707420… 2015-01-02 13:53:02      83.4  L1GT              227    74
-#>  4 LC822707320… 2015-01-02 13:52:38      52.3  L1T               227    73
-#>  5 LC822706220… 2015-01-02 13:48:14      38.8  L1T               227    62
-#>  6 LC821111520… 2015-01-02 12:30:31      22.9  L1GT              211   115
-#>  7 LC817912020… 2015-01-02 09:14:45       7.67 L1GT              179   120
-#>  8 LC821111120… 2015-01-02 12:28:55      43.4  L1GT              211   111
-#>  9 LC819502920… 2015-01-02 10:17:20      21.0  L1T               195    29
-#> 10 LC817904520… 2015-01-02 08:44:49       1.92 L1T               179    45
+#>    entityId acquisitionDate     cloudCover processingLevel  path   row
+#>    <chr>    <dttm>                   <dbl> <chr>           <int> <int>
+#>  1 LC80101… 2015-01-02 15:49:05      80.8  L1GT               10   117
+#>  2 LC80260… 2015-01-02 16:56:51      90.8  L1GT               26    39
+#>  3 LC82270… 2015-01-02 13:53:02      83.4  L1GT              227    74
+#>  4 LC82270… 2015-01-02 13:52:38      52.3  L1T               227    73
+#>  5 LC82270… 2015-01-02 13:48:14      38.8  L1T               227    62
+#>  6 LC82111… 2015-01-02 12:30:31      22.9  L1GT              211   115
+#>  7 LC81791… 2015-01-02 09:14:45       7.67 L1GT              179   120
+#>  8 LC82111… 2015-01-02 12:28:55      43.4  L1GT              211   111
+#>  9 LC81950… 2015-01-02 10:17:20      21.0  L1T               195    29
+#> 10 LC81790… 2015-01-02 08:44:49       1.92 L1T               179    45
 #> # ... with 5 more variables: min_lat <dbl>, min_lon <dbl>, max_lat <dbl>,
 #> #   max_lon <dbl>, download_url <chr>
 ```
@@ -127,7 +146,7 @@ img <- raster(x$file)
 plot(img)
 ```
 
-![plot of chunk unnamed-chunk-9](inst/img/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-10](inst/img/unnamed-chunk-10-1.png)
 
 ## Meta
 

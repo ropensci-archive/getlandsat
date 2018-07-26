@@ -21,6 +21,8 @@ knitr::opts_chunk$set(
 
 `getlandsat` provides access to Landsat <https://landsat.usgs.gov> 8 metadata and images hosted on AWS S3 at <https://registry.opendata.aws/landsat-8/>. The package only fetches data. It does not attempt to aid users in downstream usage, but some additional functionality may be added.
 
+A new function `lsat_search()` lets you search for Landsat images by using the API from Development Seed documented at <https://github.com/sat-utils/sat-api>
+
 Potential users are probably anyone from scientists asking questions about biodiversity or land use change, to software developers creating tools for users to vizualize their data.
 
 ## Install
@@ -39,6 +41,23 @@ devtools::install_github("ropensci/getlandsat")
 
 ```{r}
 library("getlandsat")
+```
+
+## Search for images
+
+```{r eval=FALSE}
+x <- lsat_search(collection = "landsat-8", cloud_cover = c(0, 20), limit = 3)$features
+names(x)
+#> [1] "type"       "properties" "bbox"       "geometry"   "assets"     "links"
+x$properties
+#>                                         id         c:id                 datetime eo:cloud_cover eo:sun_azimuth
+#> 1 LC08_L1TP_183023_20160625_20170323_01_T1 landsat-8-l1 2016-06-25T09:00:16.825Z              0      150.61964
+#> 2 LC08_L1TP_183037_20160625_20170323_01_T1 landsat-8-l1 2016-06-25T09:05:51.253Z             19      110.95730
+#> 3 LC08_L1TP_183041_20160625_20170323_01_T1 landsat-8-l1 2016-06-25T09:07:26.830Z              0       95.69133
+#>   eo:sun_elevation landsat:path landsat:row
+#> 1         57.71269          183          23
+#> 2         68.16356          183          37
+#> 3         68.55517          183          41
 ```
 
 ## List scenes

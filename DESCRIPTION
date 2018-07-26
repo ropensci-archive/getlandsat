@@ -5,7 +5,7 @@ Description: Get Landsat 8 Data from Amazon Web Services ('AWS')
     public data sets (<https://registry.opendata.aws/landsat-8/>).
     Includes functions for listing images and fetching them, and handles
     caching to prevent unnecessary additional requests.
-Version: 0.2.0.9100
+Version: 0.2.1.9210
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com", comment = c(ORCID="0000-0003-1444-9135")))
 License: MIT + file LICENSE
@@ -19,7 +19,8 @@ Imports:
     xml2 (>= 1.2.0),
     data.table,
     tibble,
-    rappdirs
+    rappdirs,
+    jsonlite
 Suggests:
     roxygen2 (>= 6.0.1),
     testthat,
