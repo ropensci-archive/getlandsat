@@ -2,7 +2,7 @@ getlandsat
 ==========
 
 
-
+[![cran checks](https://cranchecks.info/badges/worst/getlandsat)](https://cranchecks.info/pkgs/getlandsat)
 [![Build Status](https://travis-ci.org/ropensci/getlandsat.svg?branch=master)](https://travis-ci.org/ropensci/getlandsat)
 [![codecov](https://codecov.io/gh/ropensci/getlandsat/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/getlandsat)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/getlandsat)](https://github.com/metacran/cranlogs.app)
