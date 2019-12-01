@@ -4,9 +4,19 @@
 \alias{lsat_search}
 \title{Search Landsat images via the sat-api}
 \usage{
-lsat_search(collection = NULL, datetime = NULL, cloud_cover = NULL,
-  sun_azimuth = NULL, sun_elevation = NULL, row = NULL, path = NULL,
-  limit = 10, page = 1, as = "df", ...)
+lsat_search(
+  collection = NULL,
+  datetime = NULL,
+  cloud_cover = NULL,
+  sun_azimuth = NULL,
+  sun_elevation = NULL,
+  row = NULL,
+  path = NULL,
+  limit = 10,
+  page = 1,
+  as = "df",
+  ...
+)
 }
 \arguments{
 \item{collection}{(character) collection name}

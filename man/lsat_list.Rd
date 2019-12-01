@@ -4,8 +4,7 @@
 \alias{lsat_list}
 \title{List Landsat images}
 \usage{
-lsat_list(max = NULL, marker = NULL, prefix = NULL, delimiter = NULL,
-  ...)
+lsat_list(max = NULL, marker = NULL, prefix = NULL, delimiter = NULL, ...)
 }
 \arguments{
 \item{max}{(integer) number indicating the maximum number of keys to
