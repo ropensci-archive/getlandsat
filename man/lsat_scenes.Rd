@@ -7,15 +7,15 @@
 lsat_scenes(...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{\link[readr:read_csv]{readr::read_csv()}}}
+\item{...}{Further args passed on to \code{\link[readr:read_delim]{readr::read_csv()}}}
 }
 \description{
 List Landsat scenes
 }
 \details{
-We use \code{\link[readr:read_csv]{readr::read_csv()}} to read the scene list file
+We use \code{\link[readr:read_delim]{readr::read_csv()}} to read the scene list file
 from \url{http://landsat-pds.s3.amazonaws.com/scene_list.gz}. See the help
-file for \code{\link[readr:read_csv]{readr::read_csv()}} for what parameter you can pass to modify it's
+file for \code{\link[readr:read_delim]{readr::read_csv()}} for what parameter you can pass to modify it's
 behavior.
 
 This is an alternative to using \code{\link[=lsat_list]{lsat_list()}}. This function

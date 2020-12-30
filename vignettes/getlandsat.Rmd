@@ -1,16 +1,26 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{getlandsat introduction}
-%\VignetteEncoding{UTF-8}
--->
+---
+title: "Introduction to getlandsat"
+author: "Scott Chamberlain"
+date: "2020-12-30"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: readable
+vignette: >
+  %\VignetteIndexEntry{getlandsat introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
 
 
 getlandsat introduction
 =======================
 
-Get Landsat 8 Data from AWS public data sets. Includes functions for 
-listing images and fetching them.
+`getlandsat` provides access to Landsat <https://landsat.usgs.gov> 8 metadata and images hosted on AWS S3 at <https://aws.amazon.com/public-data-sets/landsat>. The package only fetches data. It does not attempt to aid users in downstream usage, but some additional functionality may be added.
+
+Potential users are probably anyone from scientists asking questions about biodiversity or land use change, to software developers creating tools for users to vizualize their data.
 
 ## Install
 
@@ -18,15 +28,13 @@ Dev version
 
 
 ```r
-devtools::install_github(c("ropensci/getlandsat"))
+remotes::install_github("ropensci/getlandsat")
 ```
 
 
 ```r
 library("getlandsat")
 ```
-
-
 
 
 ## List scenes

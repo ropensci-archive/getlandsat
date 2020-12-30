@@ -2,6 +2,7 @@
 ^\.Rproj\.user$
 ^CODE_OF_CONDUCT\.md$
 README.Rmd
+README.md
 .travis.yml
 ^Makefile$
 ^CONTRIBUTING\.md$
@@ -9,3 +10,4 @@ README.Rmd
 ^codemeta\.json$
 ^.github$
 ^LICENSE\.md$
+vignettes/

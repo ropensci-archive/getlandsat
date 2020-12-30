@@ -26,7 +26,7 @@ Get Landsat image(s)
 \dontrun{
 # pass an image name
 (res <- lsat_list(max = 40))
-tifs <- grep("\\.TIF$", res$Key, value = TRUE)
+tifs <- grep("\\\\.TIF$", res$Key, value = TRUE)
 lsat_image(tifs[5])
 lsat_image(tifs[6])
 lsat_image(tifs[9])
