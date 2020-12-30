@@ -8,3 +8,4 @@ README.Rmd
 ^cran-comments\.md$
 ^codemeta\.json$
 ^.github$
+^LICENSE\.md$
